@@ -6,12 +6,17 @@ public class Pickup : MonoBehaviour
 {
     public GameObject Base;
     public GameObject Package;
+    public GameObject EDrink;
+    public GameObject Perfume;
+
 
 
     void Start()
     {
         Base.gameObject.SetActive(true);
         Package.gameObject.SetActive(false);
+        EDrink.gameObject.SetActive(false);
+        Perfume.gameObject.SetActive(false);
 
     }
 
@@ -25,9 +30,41 @@ public class Pickup : MonoBehaviour
             {
                 Base.gameObject.SetActive(false);
                 Package.gameObject.SetActive(true);
+                EDrink.gameObject.SetActive(false);
+                Perfume.gameObject.SetActive(false);
+
+                collision.gameObject.SetActive(false);
+
+            }
+        }
+
+        if (collision.gameObject.tag == "EDrink")
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Base.gameObject.SetActive(false);
+                Package.gameObject.SetActive(false);
+                EDrink.gameObject.SetActive(true);
+                Perfume.gameObject.SetActive(false);
 
                 Destroy(collision.gameObject);
             }
         }
+
+        if (collision.gameObject.tag == "Perfume")
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Base.gameObject.SetActive(false);
+                Package.gameObject.SetActive(false);
+                EDrink.gameObject.SetActive(false);
+                Perfume.gameObject.SetActive(true);
+
+                collision.gameObject.SetActive(false);
+                
+            }
+        }
+
+        
     }
 }
