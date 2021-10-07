@@ -19,17 +19,18 @@ public class Highlight : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            normal.gameObject.SetActive(true);
-            highlight.gameObject.SetActive(false);
-        }
-        else
-        {
             normal.gameObject.SetActive(false);
             highlight.gameObject.SetActive(true);
         }
+
     }
 
-   
-
-    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            normal.gameObject.SetActive(true);
+            highlight.gameObject.SetActive(false);
+        }
+    }
 }

@@ -33,7 +33,7 @@ public class Pickup : MonoBehaviour
                 EDrink.gameObject.SetActive(false);
                 Perfume.gameObject.SetActive(false);
 
-                collision.gameObject.SetActive(false);
+                
 
             }
         }
@@ -47,7 +47,7 @@ public class Pickup : MonoBehaviour
                 EDrink.gameObject.SetActive(true);
                 Perfume.gameObject.SetActive(false);
 
-                Destroy(collision.gameObject);
+                
             }
         }
 
@@ -60,7 +60,7 @@ public class Pickup : MonoBehaviour
                 EDrink.gameObject.SetActive(false);
                 Perfume.gameObject.SetActive(true);
 
-                collision.gameObject.SetActive(false);
+                
                 
             }
         }
