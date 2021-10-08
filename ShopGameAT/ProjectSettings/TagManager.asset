@@ -8,6 +8,10 @@ TagManager:
   - EDrink
   - WCane
   - Perfume
+  - OldMan
+  - IrritatedWoman
+  - EccentricMan
+  - ShadyMan
   layers:
   - Default
   - TransparentFX

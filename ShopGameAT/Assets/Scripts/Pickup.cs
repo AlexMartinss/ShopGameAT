@@ -26,7 +26,7 @@ public class Pickup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Package")
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Base.gameObject.SetActive(false);
                 Package.gameObject.SetActive(true);
@@ -40,7 +40,7 @@ public class Pickup : MonoBehaviour
 
         if (collision.gameObject.tag == "EDrink")
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Base.gameObject.SetActive(false);
                 Package.gameObject.SetActive(false);
@@ -53,7 +53,7 @@ public class Pickup : MonoBehaviour
 
         if (collision.gameObject.tag == "Perfume")
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Base.gameObject.SetActive(false);
                 Package.gameObject.SetActive(false);
