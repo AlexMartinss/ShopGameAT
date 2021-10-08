@@ -35,7 +35,7 @@ public class IntroDialogue : MonoBehaviour
 
      if (index >= 1)
         {
-            Destroy(textBox);
+            textBox.gameObject.SetActive(false);
             continueButton.SetActive(false);
             ThisDialogue.gameObject.SetActive(false);
             

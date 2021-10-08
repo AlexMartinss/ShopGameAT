@@ -8,53 +8,92 @@ public class DialogueActivator : MonoBehaviour
     public GameObject IrritatedWoman;
     public GameObject EccentricMan;
     public GameObject ShadyMan;
-  
+
+    public bool nearOldMan;
+    public bool nearIrritatedWoman;
+    public bool nearEccentricMan;
+    public bool nearShadyMan;
 
 
-    private void OnTriggerStay2D(Collider2D collision)
+
+
+    private void Update()
+    {
+        if (nearOldMan == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            OldMan.gameObject.SetActive(true);
+        }
+        if (nearIrritatedWoman == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            IrritatedWoman.gameObject.SetActive(true);
+        }
+        if (nearEccentricMan == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            EccentricMan.gameObject.SetActive(true);
+        }
+        if (nearShadyMan == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            ShadyMan.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (collision.gameObject.tag == "OldMan")
+        if (other.gameObject.tag == "OldMan")
         
         {
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                OldMan.gameObject.SetActive(true);
-
-            }
+            nearOldMan = true;
             
         }
 
-        if (collision.gameObject.tag == "IrritatedWoman")
+        if (other.gameObject.tag == "IrritatedWoman")
 
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                IrritatedWoman.gameObject.SetActive(true);
-
-            }
+            nearIrritatedWoman = true;
 
         }
 
-        if (collision.gameObject.tag == "EccentricMan")
+        if (other.gameObject.tag == "EccentricMan")
 
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                EccentricMan.gameObject.SetActive(true);
+            nearEccentricMan = true;
+        }
 
-            }
+        if (other.gameObject.tag == "ShadyMan")
+
+        {
+            nearShadyMan = true;
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "OldMan")
+
+        {
+            nearOldMan = false;
 
         }
 
-        if (collision.gameObject.tag == "ShadyMan")
+        if (other.gameObject.tag == "IrritatedWoman")
 
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                ShadyMan.gameObject.SetActive(true);
+            nearIrritatedWoman = false;
 
-            }
+        }
+
+        if (other.gameObject.tag == "EccentricMan")
+
+        {
+            nearEccentricMan = false;
+        }
+
+        if (other.gameObject.tag == "ShadyMan")
+
+        {
+            nearShadyMan = false;
 
         }
     }
