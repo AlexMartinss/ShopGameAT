@@ -12,6 +12,7 @@ TagManager:
   - IrritatedWoman
   - EccentricMan
   - ShadyMan
+  - Cane
   layers:
   - Default
   - TransparentFX

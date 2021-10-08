@@ -8,11 +8,15 @@ public class Pickup : MonoBehaviour
     public GameObject Package;
     public GameObject EDrink;
     public GameObject Perfume;
+    public GameObject Cane;
 
     
     public bool package;
     public bool eDrink;
     public bool perfume;
+    public bool cane;
+
+    public AudioSource pickUpSound;
 
 
 
@@ -23,6 +27,7 @@ public class Pickup : MonoBehaviour
         Package.gameObject.SetActive(false);
         EDrink.gameObject.SetActive(false);
         Perfume.gameObject.SetActive(false);
+        Cane.gameObject.SetActive(false);
 
     }
 
@@ -30,24 +35,43 @@ public class Pickup : MonoBehaviour
     {
         if (package == true && Input.GetKeyDown(KeyCode.E))
         {
+            pickUpSound.Play();
+
             Base.gameObject.SetActive(false);
             EDrink.gameObject.SetActive(false);
             Package.gameObject.SetActive(true);
             Perfume.gameObject.SetActive(false);
+            Cane.gameObject.SetActive(false);
         }
         if (eDrink == true && Input.GetKeyDown(KeyCode.E))
         {
+            pickUpSound.Play();
+
             Base.gameObject.SetActive(false);
             EDrink.gameObject.SetActive(true);
             Package.gameObject.SetActive(false);
             Perfume.gameObject.SetActive(false);
+            Cane.gameObject.SetActive(false);
         }
         if (perfume == true && Input.GetKeyDown(KeyCode.E))
         {
+            pickUpSound.Play();
+
             Base.gameObject.SetActive(false);
             EDrink.gameObject.SetActive(false);
             Package.gameObject.SetActive(false);
             Perfume.gameObject.SetActive(true);
+            Cane.gameObject.SetActive(false);
+        }
+        if (cane == true && Input.GetKeyDown(KeyCode.E))
+        {
+            pickUpSound.Play();
+
+            Base.gameObject.SetActive(false);
+            EDrink.gameObject.SetActive(false);
+            Package.gameObject.SetActive(false);
+            Perfume.gameObject.SetActive(false);
+            Cane.gameObject.SetActive(true);
         }
 
     }
@@ -69,7 +93,11 @@ public class Pickup : MonoBehaviour
             perfume = true;
         }
 
-        
+        if (collision.gameObject.tag == "Cane")
+        {
+            cane = true;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -87,6 +115,11 @@ public class Pickup : MonoBehaviour
         if (collision.gameObject.tag == "Perfume")
         {
             perfume = false;
+        }
+
+        if (collision.gameObject.tag == "Cane")
+        {
+            cane = false;
         }
     }
 }
